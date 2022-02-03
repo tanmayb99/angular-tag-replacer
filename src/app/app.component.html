@@ -1,0 +1,71 @@
+<div class="container pt-3">
+    <div class="row">
+
+        <mat-card class="mb-30">
+            
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Input text</mat-label>
+                <textarea matInput placeholder="Enter your input text" name="userInput" [(ngModel)]="userInput" id="userInput" class="w-100"></textarea>
+            </mat-form-field>
+
+            <mat-divider></mat-divider>
+
+            <div class="replacement-box pt-20">
+
+                <div class="head d-flex mb-20 align-items-center">
+                    <h5>Replacements</h5>
+                    <button mat-flat-button color="primary" (click)="addField()">Add</button>
+                    <button mat-flat-button color="primary" (click)="removeField()">Remove</button>
+                </div>
+
+                <div class="body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <mat-checkbox class="example-margin" name="selectAll" 
+                                    [(ngModel)]="selectAllValue" (click)="selectAll()" color="primary"></mat-checkbox>
+                                </th>
+                                <th>Tags</th>
+                                <th>Replacements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tag of tags">
+                                <td>
+                                    <mat-checkbox class="example-margin" (change)="checkTag(tag)" name="selected" [(ngModel)]="tag.selected" color="primary"></mat-checkbox>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Tag</mat-label>
+                                        <input matInput name="placeholders" (keyup)="checkTag(tag)" [(ngModel)]="tag.tag">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Replacement</mat-label>
+                                        <input matInput name="value" [(ngModel)]="tag.replacement">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <small class="d-block mb-2 mt-3">(Select checkbox to replace or to remove tags)</small>
+                    <div class="bottom mt-3 pb-20">
+                        <button mat-flat-button color="primary" (click)="replaceText()">Replace</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <mat-form-field appearance="outline" class="w-100 pt-20">
+                <mat-label>Output text</mat-label>
+                <textarea matInput readonly placeholder="User Output" name="userOutput" [(ngModel)]="userOutput" id="userOutput" class="w-100"></textarea>
+            </mat-form-field>
+    
+        </mat-card>
+
+    </div>
+</div>

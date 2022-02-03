@@ -1,0 +1,24 @@
+.input-field :is(label, input){
+    display: block;
+}
+
+.head{
+    grid-gap: 1%;
+}
+
+td, th{
+    border: 1px solid #ddd;
+    border-width: 1px 0px 1px 0px;
+    padding: 10px;
+}
+
+input[type=text]{
+    border: 1px solid #6666;
+    border-width: 0px 0px 1px 0px;
+    border-radius: 0px;
+}
+
+input[type=checkbox]{
+    width: 100px;
+    height: 20px;
+}
